@@ -86,6 +86,7 @@
       axis: 'y',
       distance: '25px',
       duration: '0.66s',
+      timing: 'ease',
       delay: '0s',
 
   //  if 0, the element is considered in the viewport as soon as it enters
@@ -244,10 +245,11 @@
     genCSS: function (el, axis) {
       var parsed = this.parseLanguage(el);
 
-      var dist   = parsed.distance || this.options.distance,
-          dur    = parsed.duration || this.options.duration,
-          delay  = parsed.delay    || this.options.delay,
-          axis   = parsed.axis     || this.options.axis;
+      var dist      = parsed.distance || this.options.distance,
+          dur       = parsed.duration || this.options.duration,
+          timeFunc  = parsed.timing   || this.options.timing,
+          delay     = parsed.delay    || this.options.delay,
+          axis      = parsed.axis     || this.options.axis;
 
       var transition = "-webkit-transition: all " + dur + " ease " + delay + ";" +
                           "-moz-transition: all " + dur + " ease " + delay + ";" +

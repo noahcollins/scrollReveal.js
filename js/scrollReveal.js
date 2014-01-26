@@ -206,6 +206,22 @@
             parsed.distance = words[i + 1];
             return;
 
+          case "linear":
+            parsed.timing = words[i + 1];
+            return;
+
+          case "ease-in":
+            parsed.timing = words[i + 1];
+            return;
+
+          case "ease-in-out":
+            parsed.timing = words[i + 1];
+            return;
+
+          case "ease-out":
+            parsed.timing = words[i + 1];
+            return;
+
           case "over":
             parsed.duration = words[i + 1];
             return;
@@ -245,11 +261,11 @@
     genCSS: function (el, axis) {
       var parsed = this.parseLanguage(el);
 
-      var dist      = parsed.distance || this.options.distance,
-          dur       = parsed.duration || this.options.duration,
-          timeFunc  = parsed.timing   || this.options.timing,
-          delay     = parsed.delay    || this.options.delay,
-          axis      = parsed.axis     || this.options.axis;
+      var dist         = parsed.distance || this.options.distance,
+          dur          = parsed.duration || this.options.duration,
+          timingTrans  = parsed.timing   || this.options.timing,
+          delay        = parsed.delay    || this.options.delay,
+          axis         = parsed.axis     || this.options.axis;
 
       var transition = "-webkit-transition: all " + dur + " ease " + delay + ";" +
                           "-moz-transition: all " + dur + " ease " + delay + ";" +
